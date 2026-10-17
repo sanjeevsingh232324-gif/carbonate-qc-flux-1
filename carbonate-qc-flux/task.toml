@@ -1,0 +1,31 @@
+artifacts = ["/app/report.json"]
+
+schema_version = "2.0"
+
+[task]
+name = "insight/carbonate-qc-flux"
+description = "Find and diagnose internally inconsistent samples in a cruise seawater carbonate dataset, correct them, and compute monthly net air-sea CO2 flux."
+
+[metadata]
+difficulty_explanation = "The bottle data overdetermine the seawater carbonate system (DIC, TA, pH, fCO2), so inconsistent samples can only be found by computing each parameter from pairs of the others with every step done correctly: converting spectrophotometric pH between pH scales and measurement temperatures, applying the stated dissociation constants consistently, and including phosphate and silicate alkalinity. A pH scale difference of about 0.01 or a missing nutrient term is enough to falsely flag clean samples, and several fault types (swapped column, unit error, pH scale mix-up, wrong measurement temperature) produce similar residuals, so the agent must work out which parameter is wrong from the pattern of pairwise residuals, not just that something is wrong. The flux calculation adds fCO2 versus pCO2, solubility, a wind-speed gas-transfer parameterization with Schmidt number scaling, and sign convention. Agents tend to get one or two steps subtly wrong and still produce a plausible-looking report. Humans need chemical oceanography expertise to know which corrections matter."
+solution_explanation = "Load the bottle and underway data. Convert pH to the total scale at the pH measurement temperature. Compute each carbonate parameter from pairs of the others using the stated constants and nutrient terms. Compare computed and measured values and use the pattern of residuals across parameter pairs to identify the faulty parameter and classify the fault type. Recompute corrected values for flagged samples, compute monthly net air-sea CO2 flux from fCO2, solubility, wind speed and the stated gas-transfer parameterization, and write the report."
+verification_explanation = "The verifier compares /app/report.json to ground truth held only in the verifier image. It requires the flagged sample set to match the injected faults exactly (no misses, no false positives; decoy clean samples sit near the flagging threshold so a wrong pH scale or missing nutrient term produces false flags), the diagnosis for each flagged sample to match the injected cause, corrected values to be within stated tolerances, and monthly net flux to be within 1 percent of the reference value. Tolerances are set from the synthetic noise level so correct solutions pass with margin and common mistakes fall outside."
+category = "Science"
+subcategory = "Earth"
+tags = ["oceanography", "carbonate-chemistry", "data-qc", "air-sea-flux", "python"]
+expert_time_estimate_hours = 3
+relevant_experience = "Experience with seawater carbonate chemistry measurements, cruise bottle-data quality control and consistency checks, and air-sea CO2 flux estimation for ocean carbon synthesis work."
+
+[verifier]
+timeout_sec = 300.0
+environment_mode = "separate"
+
+[agent]
+timeout_sec = 18000.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0

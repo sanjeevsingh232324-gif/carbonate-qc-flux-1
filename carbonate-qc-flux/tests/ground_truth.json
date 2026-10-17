@@ -1,0 +1,141 @@
+{
+  "faults": {
+    "SWIO-004": {
+      "label": "ph_seawater_scale",
+      "corrected": {
+        "ph_meas": 8.0543
+      },
+      "tolerance": 0.003
+    },
+    "SWIO-019": {
+      "label": "ph_seawater_scale",
+      "corrected": {
+        "ph_meas": 8.0769
+      },
+      "tolerance": 0.003
+    },
+    "SWIO-068": {
+      "label": "ph_seawater_scale",
+      "corrected": {
+        "ph_meas": 8.0402
+      },
+      "tolerance": 0.003
+    },
+    "SWIO-021": {
+      "label": "ph_temp_mislabeled",
+      "corrected": {
+        "ph_temp_c": 25.0
+      },
+      "tolerance": 0.01
+    },
+    "SWIO-053": {
+      "label": "ph_temp_mislabeled",
+      "corrected": {
+        "ph_temp_c": 25.0
+      },
+      "tolerance": 0.01
+    },
+    "SWIO-078": {
+      "label": "ph_temp_mislabeled",
+      "corrected": {
+        "ph_temp_c": 25.0
+      },
+      "tolerance": 0.01
+    },
+    "SWIO-002": {
+      "label": "dic_ta_swapped",
+      "corrected": {
+        "dic_umolkg": 1966.58,
+        "ta_umolkg": 2310.42
+      },
+      "tolerance": 0.5
+    },
+    "SWIO-064": {
+      "label": "dic_ta_swapped",
+      "corrected": {
+        "dic_umolkg": 2212.34,
+        "ta_umolkg": 2380.32
+      },
+      "tolerance": 0.5
+    },
+    "SWIO-028": {
+      "label": "dic_ta_swapped",
+      "corrected": {
+        "dic_umolkg": 1991.09,
+        "ta_umolkg": 2302.69
+      },
+      "tolerance": 0.5
+    },
+    "SWIO-016": {
+      "label": "dic_volumetric_units",
+      "corrected": {
+        "dic_umolkg": 2222.8
+      },
+      "tolerance": 1.5
+    },
+    "SWIO-065": {
+      "label": "dic_volumetric_units",
+      "corrected": {
+        "dic_umolkg": 1959.67
+      },
+      "tolerance": 1.5
+    },
+    "SWIO-025": {
+      "label": "dic_volumetric_units",
+      "corrected": {
+        "dic_umolkg": 1946.79
+      },
+      "tolerance": 1.5
+    },
+    "SWIO-031": {
+      "label": "ta_volumetric_units",
+      "corrected": {
+        "ta_umolkg": 2355.02
+      },
+      "tolerance": 1.5
+    },
+    "SWIO-010": {
+      "label": "ta_volumetric_units",
+      "corrected": {
+        "ta_umolkg": 2303.0
+      },
+      "tolerance": 1.5
+    },
+    "SWIO-026": {
+      "label": "ta_volumetric_units",
+      "corrected": {
+        "ta_umolkg": 2308.79
+      },
+      "tolerance": 1.5
+    }
+  },
+  "monthly_flux": {
+    "1": 0.04884488501496568,
+    "2": 0.05095147351834161,
+    "3": 0.035972566172392875,
+    "4": -0.001757920355470205,
+    "5": -0.029088805444369672,
+    "6": -0.07823556406092652,
+    "7": -0.11430760182309303,
+    "8": -0.12584042814650134,
+    "9": -0.10539596052431846,
+    "10": -0.07049978167817898,
+    "11": -0.0224981537198831,
+    "12": 0.017183531128545527
+  },
+  "tolerances": {
+    "ph_meas": 0.003,
+    "ph_temp_c": 0.01,
+    "swap": 0.5,
+    "vol": 1.5,
+    "flux_rel": 0.01,
+    "flux_abs": 0.0005
+  },
+  "labels": [
+    "ph_seawater_scale",
+    "ph_temp_mislabeled",
+    "dic_ta_swapped",
+    "dic_volumetric_units",
+    "ta_volumetric_units"
+  ]
+}
